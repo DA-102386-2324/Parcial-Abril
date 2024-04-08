@@ -27,6 +27,7 @@ public class GameActivity extends AppCompatActivity {
 
     //TODO
     private void initDataBinding() {
+
     }
     //
 }

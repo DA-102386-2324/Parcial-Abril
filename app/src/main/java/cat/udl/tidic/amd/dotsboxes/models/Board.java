@@ -15,6 +15,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Board {
 
+    private List<Line> lines;
+
     private  static String TAG = "Board";
     private int xMargin, yMargin,  xDistance,yDistance;
     private final List<Point> points;
@@ -127,5 +129,29 @@ public class Board {
         });
         return point.get();
     }
+    public boolean isMoveValid(Point point1, Point point2) {
+        if (!isPointFree(point1) || !isPointFree(point2)) {
+            return false;
+        }
 
+        if (!areAdjacentPoints(point1, point2)) {
+            return false;
+        }
+
+        Line line = new Line(point1, point2);
+        if (lines.contains(line)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private boolean isPointFree(Point point) {
+        return true;
+    }
+
+    private boolean areAdjacentPoints(Point point1, Point point2) {
+        return true;
+    }
 }
+
