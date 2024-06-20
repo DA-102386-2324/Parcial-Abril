@@ -1,41 +1,29 @@
 package cat.udl.tidic.amd.dotsboxes.models;
 
-import android.graphics.Color;
 import android.graphics.Point;
 import android.util.Pair;
 
 public class Player {
-
     private String name;
-    public String alias;
     private int color;
-    private int squares;
     private boolean isPlaying;
+    private int squares;
+    public Pair<Point, Point> election;
 
-    public Pair<Point,Point> election;
-
+    public Player() {
+        //Constructor buit per Firebase
+    }
 
     public Player(String name, int color) {
         this.name = name;
         this.color = color;
+        this.isPlaying = false;
         this.squares = 0;
-        this.alias = name.toUpperCase().substring(0,1);
     }
 
-    public int getSquares() {
-        return squares;
-    }
-
-    public void setSquares(int squares) {
-        this.squares = squares;
-    }
-
+    // Getters y Setters
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getColor() {
@@ -50,4 +38,19 @@ public class Player {
         isPlaying = playing;
     }
 
+    public int getSquares() {
+        return squares;
+    }
+
+    public void setSquares(int squares) {
+        this.squares = squares;
+    }
+
+    public Pair<Point, Point> getElection() {
+        return election;
+    }
+
+    public void setElection(Pair<Point, Point> election) {
+        this.election = election;
+    }
 }

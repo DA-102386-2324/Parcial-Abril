@@ -8,52 +8,41 @@ import androidx.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Line {
+    private Point pa;
+    private Point pb;
+    private Player owner;
 
-    Player owner;
-    Point PA;
-    Point PB;
+    public Line() {
+    }
 
-    private static String TAG = "Line";
+    public Line(Point pa, Point pb) {
+        this.pa = pa;
+        this.pb = pb;
+        this.owner = null;
+    }
 
-    public Line(Point PA, Point PB) {
-        this.PA = PA;
-        this.PB = PB;
+    // Getters y Setters
+    public Point getPA() {
+        return pa;
+    }
+
+    public void setPA(Point pa) {
+        this.pa = pa;
+    }
+
+    public Point getPB() {
+        return pb;
+    }
+
+    public void setPB(Point pb) {
+        this.pb = pb;
     }
 
     public Player getOwner() {
         return owner;
     }
 
-    public Point getPA() {
-        return PA;
+    public void setOwner(Player owner) {
+        this.owner = owner;
     }
-
-    public Point getPB() {
-        return PB;
-    }
-
-    @Override
-    @NonNull
-    public String toString(){
-        return "[" + PA + "," + PB + "->" +owner + "]";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this) {
-            return true;
-        }
-
-        if (!(o instanceof Line)) {
-            return false;
-        }
-
-        Line c = (Line) o;
-
-
-        return (c.getPA().equals( this.PA) || c.getPA().equals( this.PB)) &&
-                (c.getPB().equals( this.PA) || c.getPB().equals( this.PB));
-    }
-
-
 }

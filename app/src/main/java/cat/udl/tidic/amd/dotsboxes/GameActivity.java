@@ -1,49 +1,45 @@
 package cat.udl.tidic.amd.dotsboxes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import android.widget.TextView;
+
 import android.os.Bundle;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-
+import cat.udl.tidic.amd.dotsboxes.databinding.ActivityGameBinding;
+import cat.udl.tidic.amd.dotsboxes.models.Player;
+import cat.udl.tidic.amd.dotsboxes.models.Square;
 import cat.udl.tidic.amd.dotsboxes.viewmodels.GameViewModel;
 import cat.udl.tidic.amd.dotsboxes.views.GameView;
-import cat.udl.tidic.amd.dotsboxes.models.Player;
+
+import android.util.Log;
+import android.widget.TextView;
+import androidx.lifecycle.ViewModelProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+import android.os.Bundle;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class GameActivity extends AppCompatActivity {
 
-    protected GameView gameView;
-    private  GameViewModel gameViewModel;
-
-    private TextView currentPlayerTV;
-
+    private GameView gameView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        gameView = new GameView(this, null);
+        setContentView(gameView);
 
-        currentPlayerTV = findViewById(R.id.currentPlayerTV);
 
-        initDataBinding();
-        gameView = findViewById(R.id.gameView);
-
-        gameViewModel.getCurrentPlayer().observe(this, new Observer<Player>() {
-            @Override
-            public void onChanged(Player currentPlayer) {
-                updateCurrentPlayer(currentPlayer);
-            }
-        });
-    }
-
-    private void initDataBinding() {
-        gameViewModel = new ViewModelProvider(this).get(GameViewModel.class);
-    }
-
-    private void updateCurrentPlayer(Player currentPlayer) {
-        currentPlayerTV.setText(currentPlayer.getName());
     }
 
 

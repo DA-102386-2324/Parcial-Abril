@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "854420619602",
+    "project_id": "dots-and-boxes-ffaf0",
+    "storage_bucket": "dots-and-boxes-ffaf0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854420619602:android:335d1bc48f70fdf2c7fa8b",
+        "android_client_info": {
+          "package_name": "cat.udl.tidic.amd.dotsboxes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB18gWDLOawlGHF7nn6jX1iF33747O8FK4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
